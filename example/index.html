@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ionic-rating-stars</title>
+   <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body ng-app="MainApp" ng-controller="MainController">
+
+  <center>
+    <rating-stars ng-model="rating" max="max_stars"></rating-stars>
+    <br>
+    <button ng-click="getValue()">Click</button>
+  </center>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="bower_components/ionic-rating-stars/dist/js/ionic-rating-stars.min.js"></script>
+  <script src="controller.main.js"></script>
+</body>
+</html>
