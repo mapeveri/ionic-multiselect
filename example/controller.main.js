@@ -1,11 +1,10 @@
-var App = angular.module("MainApp", ["ionic-rating-stars"]);
+var App = angular.module("MainApp", ["ionic-multiselect"]);
 
 App.controller("MainController", function($scope){
 
-  $scope.rating = 3;
-  $scope.max_stars = 5;
+  $scope.data = [{id: 1, value: "Item 1"}, {id: 2, value: "Item 2"}, {id: 3, value: "Item 3"}];
 
-  $scope.getValue = function(){
-    console.log($scope.rating);
+  $scope.onValueChanged = function(value){
+  	console.log(value);
   }
 });
