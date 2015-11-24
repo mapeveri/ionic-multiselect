@@ -1,4 +1,4 @@
-var App = angular.module("MainApp", ["ionic-multiselect"]);
+var App = angular.module("MainApp", ["ionic", "ionic-multiselect"]);
 
 App.controller("MainController", function($scope){
 

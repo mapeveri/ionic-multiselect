@@ -12,10 +12,10 @@
           <input type="checkbox" ng-checked="item.checked" ng-model="item.checked">
         </label>
         <div ng-if="isTranslate">
-          {{ indexTranslate + $eval('item.' + valueProperty) | translate }}
+          {{ item | translateItem:this }}
         </div>
         <div ng-if="!isTranslate">
-          {{ $eval('item.' + textProperty) }}
+          {{ $eval('item.' + textProperty) }} 
         </div>
       </ion-item>
     </div>

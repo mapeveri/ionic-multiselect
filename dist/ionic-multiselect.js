@@ -2,9 +2,27 @@
 "use strict";
 
 angular.module("ionic-multiselect", [])
+.filter('translateItem', ["$injector", function($injector) {
+  return function(item, scope) {
+
+    var filterTranslate;
+    try{
+        var filterTranslate = $injector.get('$filter');
+        return filterTranslate('translate')(scope.indexTranslate + eval('item.' + scope.valueProperty));
+    }catch(e){
+      return "";
+    }
+  };
+}])
 //Filter that show data text
-.filter('showTextData', ["$filter", function($filter) {
+.filter('showTextData', ["$injector", function($injector) {
   return function(value, scope) {
+
+    var filterTranslate;
+    try{
+        var filterTranslate = $injector.get('$filter');
+    }catch(e){}
+
     var arr = [];
     if(value.indexOf("-") > -1){
       arr = value.split("-");
@@ -12,7 +30,7 @@ angular.module("ionic-multiselect", [])
       var tot = arr.length;
       for(var i=0;i<tot;i++){
           if(scope.isTranslate){
-            var valueAux = $filter('translate')(scope.indexTranslate + arr[i].trim());
+            var valueAux = filterTranslate('translate')(scope.indexTranslate + arr[i].trim());
           }else{
             var valueAux = arr[i].trim();
           }
@@ -56,7 +74,7 @@ angular.module("ionic-multiselect", [])
       scope.textProperty = attrs.textProperty || "text";
       scope.valueProperty = attrs.valueProperty || "id";
       //Translate properties
-      scope.isTranslate = attrs.isTranslate || false;
+      scope.isTranslate = (attrs.isTranslate === "true") || false;
       scope.indexTranslate = attrs.indexTranslate || "";
       // The modal properties
       scope.modalTemplateUrl = attrs.modalTemplateUrl;
@@ -96,7 +114,8 @@ angular.module("ionic-multiselect", [])
 
       //Obtiene el valor de la propiedad de un objeto
       scope.getItemValue = function(item) {
-        return scope.valueProperty ? item[scope.valueProperty].trim() : item.trim();
+        console.log(item[scope.valueProperty]);
+        return scope.valueProperty ? item[scope.valueProperty] : item;
       };
 
       //Obtiene los items seleccionados
