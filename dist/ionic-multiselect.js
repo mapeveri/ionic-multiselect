@@ -114,7 +114,6 @@ angular.module("ionic-multiselect", [])
 
       //Obtiene el valor de la propiedad de un objeto
       scope.getItemValue = function(item) {
-        console.log(item[scope.valueProperty]);
         return scope.valueProperty ? item[scope.valueProperty] : item;
       };
 
