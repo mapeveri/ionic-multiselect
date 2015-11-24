@@ -11,8 +11,8 @@
     "angular",
     "angularjs",
     "javascript",
-    "rating",
-    "stars"
+    "ionic",
+    "Multiselect"
   ],
   "license": "MIT",
   "homepage": "https://github.com/mapeveri/ionic-multiselect",
@@ -23,7 +23,7 @@
     "test",
     "tests",
     "images",
-    "example",
+    "example"
   ],
   "dependencies": {
     "angular": "*"
