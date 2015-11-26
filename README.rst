@@ -101,4 +101,4 @@ Example
 
 Check the file `index`_.
 
-.. _index: https://github.com/mapeveri/multiselect/blob/master/example/index.html
+.. _index: https://github.com/mapeveri/ionic-multiselect/blob/master/example/index.html
