@@ -52,7 +52,11 @@ angular.module("ionic-multiselect", [])
             arr[i] = valueAux;
         }
       }else{
-        arr.push(value);
+        if(scope.isTranslate){
+          arr.push(filterTranslate('translate')(scope.indexTranslate + value.trim()));
+        }else{
+          arr.push(value);
+        }
       }
 
       if(arr.length == 0){
@@ -64,7 +68,7 @@ angular.module("ionic-multiselect", [])
   }])
   /**
   * @desc Multiselect for Ionic Framework
-  * @example 
+  * @example
   *   <multiselect
   *      header-text="Header"
   *      items="data"
@@ -198,7 +202,7 @@ angular.module("ionic-multiselect", [])
         };
 
         /**
-        * @name hideItems 
+        * @name hideItems
         * @desc Hide modal
         * @param {Object} event: Event js
         */
