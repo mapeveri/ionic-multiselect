@@ -197,6 +197,13 @@ angular.module("ionic-multiselect", [])
             text = scope.defaultText;
           }
 
+          //Check if empty
+          if(scope.isTranslate){
+            if(text.trim() == ""){
+              text = "-";
+            }
+          }
+          
           // If a callback has been specified for the text
           return scope.getCustomTextCallback({value: value}) || text;
         };
