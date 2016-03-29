@@ -192,9 +192,11 @@ angular.module("ionic-multiselect", [])
                 }
               }
             });
-          } else {
-            // Set text default
-            text = scope.defaultText;
+          } 
+
+          if (!text.length) {
+              // Set text default
+              text = scope.defaultText;
           }
 
           //Check if empty
