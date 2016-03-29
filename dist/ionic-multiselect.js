@@ -192,12 +192,15 @@ angular.module("ionic-multiselect", [])
                 }
               }
             });
+          }else{
+            //Text default (When is translate)
+            text = scope.defaultText;
           } 
 
-          if (!text.length) {
-              // Set text default
-              text = scope.defaultText;
-          }
+          //Text default when not select nothing and not is translate
+          if (!text.length && !scope.isTranslate) {
+            text = scope.defaultText;
+          } 
 
           //Check if empty
           if(scope.isTranslate){
