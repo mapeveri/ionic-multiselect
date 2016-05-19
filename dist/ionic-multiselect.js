@@ -38,8 +38,8 @@ angular.module("ionic-multiselect", [])
       }catch(e){}
 
       var arr = [];
-      if(value.indexOf("-") > -1){
-        arr = value.split("-");
+      if(value.indexOf("^") > -1){
+        arr = value.split("^");
         arr = arr.filter(Boolean);
         var tot = arr.length;
 
@@ -96,8 +96,7 @@ angular.module("ionic-multiselect", [])
       },
       //Attributes
       scope: {
-        items: "=", // Needs to have a value
-        value: "=", // Needs to have a value
+        items: "=", // Needs to have a values
         valueChangedCallback: "&valueChanged", // The callback used to signal that the value has changed
         getCustomTextCallback: "&getCustomText" // The callback used to get custom text based on the selected value
       },
@@ -184,9 +183,9 @@ angular.module("ionic-multiselect", [])
                 if (scope.getItemValue(item) == temp[i]) {
                   //if is translate
                   if(scope.isTranslate){
-                    text += (text.length ? "-" : "") + scope.getItemValue(item);
+                    text += (text.length ? "^" : "") + scope.getItemValue(item);
                   }else{
-                    text += (text.length ? "-" : "") + scope.getItemText(item);
+                    text += (text.length ? "^" : "") + scope.getItemText(item);
                   }
                   break;
                 }
@@ -195,20 +194,20 @@ angular.module("ionic-multiselect", [])
           }else{
             //Text default (When is translate)
             text = scope.defaultText;
-          } 
+          }
 
           //Text default when not select nothing and not is translate
           if (!text.length && !scope.isTranslate) {
             text = scope.defaultText;
-          } 
+          }
 
           //Check if empty
           if(scope.isTranslate){
             if(text.trim() == ""){
-              text = "-";
+              text = "^";
             }
           }
-          
+
           // If a callback has been specified for the text
           return scope.getCustomTextCallback({value: value}) || text;
         };

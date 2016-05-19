@@ -1,6 +1,6 @@
 <ion-list>
   <ion-item ng-click="showItems($event)">
-    <div ng-repeat="item in text | showTextData:this">
+    <div ng-repeat="item in text | showTextData:this track by $index">
       {{ item }}
     </div>
 

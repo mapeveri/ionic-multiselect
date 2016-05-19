@@ -15,7 +15,7 @@ Getting started
 
 1. Add script js::
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="bower_components/ionic-multiselect/dist/ionic-multiselect.min.js"></script>
 
 2. Add the module **ionic-multiselect** to module main::
