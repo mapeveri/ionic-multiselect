@@ -38,6 +38,14 @@ Getting started
       value-changed="onValueChanged(value)">
     </multiselect>
 
+4. Get value selected::
+
+	//Your controller
+	$scope.onValueChanged = function(value){
+		//Value return a array objects with items selected
+		console.log(value);
+	}
+
 Attributes
 ----------
 

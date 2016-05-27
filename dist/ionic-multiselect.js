@@ -222,6 +222,19 @@ angular.module("ionic-multiselect", [])
         };
 
         /**
+        * @name onCheckValueChanged
+        * @desc Raised by watch when the check value changes
+        * @param {Object} newValue: New value object
+        * @param {Object} oldValue: Old value object
+        */
+        scope.onCheckValueChanged = function(newValue, oldValue) {
+          if(typeof(newValue) !== "undefined"){
+            // Notify subscribers that the value has changed
+            scope.valueChangedCallback({value: newValue});
+          }
+        };
+
+        /**
         * @name onValueChanged
         * @desc Raised by watch when the value changes
         * @param {Object} newValue: New value object
@@ -229,9 +242,6 @@ angular.module("ionic-multiselect", [])
         */
         scope.onValueChanged = function(newValue, oldValue) {
           scope.text = scope.getText(newValue);
-
-          // Notify subscribers that the value has changed
-          scope.valueChangedCallback({value: scope.text});
         };
 
         /**
@@ -252,18 +262,26 @@ angular.module("ionic-multiselect", [])
         scope.validate = function(item) {
           scope.value = [];
           if (scope.items) {
+            var arrChecked = [];
             angular.forEach(scope.items, function(item, key) {
               if (item[scope.checkedProperty]) {
                 scope.value[key] = scope.getItemValue(item);
+                arrChecked.push(item);
               }else{
                 scope.value[key] = "";
               }
             });
+
+            scope.itemChecked = arrChecked;
           }
           scope.hideItems();
         };
 
-        // Watch the value property, as this is used to build the text
+        // Watch itemChecked property
+        scope.$watch(function(){
+          return scope.itemChecked;
+        }, scope.onCheckValueChanged, true);
+
         scope.$watch(function(){
           return scope.value;
         }, scope.onValueChanged, true);
