@@ -5,7 +5,7 @@
     "Martin Peveri <martinpeveri@gmail.com>"
   ],
   "description": "Multiselect for Inonic Framework.",
-  "main": "ionic-multiselect.js",
+  "main": "./dist/ionic-multiselect.js",
   "moduleType": [],
   "keywords": [
     "angular",
