@@ -22,13 +22,30 @@ Getting started
 
     var App = angular.module("MainApp", ["ionic-multiselect"]);
 
-3. Add to html this line::
+3. Configure module::
+
+    App.config(function(multiselectProvider) {
+        multiselectProvider.setTemplateUrl('bower_components/ionic-multiselect/templates/item-template.html');
+        multiselectProvider.setModalTemplateUrl('bower_components/ionic-multiselect/templates/modal-template.html');
+    });
+
+4. Add to html this line::
+
+    <multiselect
+      items="data"
+      text-property="value"
+      value-property="id"
+      text="Text default multiselect"
+    </multiselect>
+
+    #or
 
     <multiselect
       header-text="Header"
       items="data"
       text-property="value"
       value-property="id"
+      checked-property="selected"
       is-translate="true"
       index-translate="TAG_TRANSLATE"
       text="Text default multiselect"
@@ -38,7 +55,7 @@ Getting started
       value-changed="onValueChanged(value)">
     </multiselect>
 
-4. Get value selected::
+5. Get value selected::
 
 	//Your controller
 	$scope.onValueChanged = function(value){
