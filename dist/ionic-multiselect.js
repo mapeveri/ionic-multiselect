@@ -66,6 +66,26 @@ angular.module("ionic-multiselect", [])
       }
     };
   }])
+
+
+  .provider('multiselect', function () {
+
+      this.setModalTemplateUrl = function (url) {
+        this.modalTemplateUrl = url;
+      };
+
+
+      this.setTemplateUrl = function (url) {
+        this.templateUrl = url;
+      };
+
+      this.$get = function () {
+        return this;
+      };
+
+    })
+
+
   /**
   * @desc Multiselect for Ionic Framework
   * @example
@@ -83,13 +103,13 @@ angular.module("ionic-multiselect", [])
   *      value-changed="onValueChanged(value)">
   *   </multiselect>
   */
-  .directive("multiselect", ["$ionicModal", function($ionicModal) {
+  .directive("multiselect", ["$ionicModal", "multiselect", function($ionicModal, multiselect) {
     return {
       restrict: "E",
       //Template with item for show modal
       template: function(element, attrs) {
-        if (attrs.templateUrl) {
-          return "<ng-include src=\"'" + attrs.templateUrl + "'\"></ng-include>";
+        if (attrs.templateUrl || multiselect.templateUrl) {
+          return "<ng-include src=\"'" + (attrs.templateUrl || multiselect.templateUrl) + "'\"></ng-include>";
         } else {
           return '';
         }
@@ -115,7 +135,7 @@ angular.module("ionic-multiselect", [])
         scope.isTranslate = (attrs.isTranslate === "true") || false;
         scope.indexTranslate = attrs.indexTranslate || "";
         // The modal properties
-        scope.modalTemplateUrl = attrs.modalTemplateUrl;
+        scope.modalTemplateUrl = attrs.modalTemplateUrl || multiselect.modalTemplateUrl;
         scope.modalAnimation = attrs.modalAnimation;
         // Note properties
         scope.noteText = attrs.noteText || "";
