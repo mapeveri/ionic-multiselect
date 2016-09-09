@@ -25,8 +25,8 @@ Getting started
 3. Configure module::
 
     App.config(function(multiselectProvider) {
-        multiselectProvider.setTemplateUrl('bower_components/ionic-multiselect/templates/item-template.html');
-        multiselectProvider.setModalTemplateUrl('bower_components/ionic-multiselect/templates/modal-template.html');
+        multiselectProvider.setTemplateUrl('bower_components/ionic-multiselect/dist/templates/item-template.html');
+        multiselectProvider.setModalTemplateUrl('bower_components/ionic-multiselect/dist/templates/modal-template.html');
     });
 
 4. Add to html this line::
@@ -67,7 +67,7 @@ Attributes
 ----------
 
 1. header-text
-	
+
 	Type: String
 	Used to specify the text that is shown in the Modal's header bar.
 

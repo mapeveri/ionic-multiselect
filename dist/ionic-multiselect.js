@@ -66,26 +66,17 @@ angular.module("ionic-multiselect", [])
       }
     };
   }])
-
-
   .provider('multiselect', function () {
-
       this.setModalTemplateUrl = function (url) {
         this.modalTemplateUrl = url;
       };
-
-
       this.setTemplateUrl = function (url) {
         this.templateUrl = url;
       };
-
       this.$get = function () {
         return this;
       };
-
     })
-
-
   /**
   * @desc Multiselect for Ionic Framework
   * @example
