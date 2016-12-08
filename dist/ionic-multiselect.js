@@ -268,9 +268,17 @@ angular.module("ionic-multiselect", [])
         /**
         * @name validate
         * @desc Validates the current list
-        * @param {Object} item: Object data item
         */
-        scope.validate = function(item) {
+        scope.validate = function() {
+          scope.fetchCheckedItems();
+          scope.hideItems();
+        };
+
+        /**
+         * @name fetchCheckedItems
+         * @desc parses the items array and determines which items are checked
+         */
+        scope.fetchCheckedItems = function() {
           scope.value = [];
           if (scope.items) {
             var arrChecked = [];
@@ -285,17 +293,22 @@ angular.module("ionic-multiselect", [])
 
             scope.itemChecked = arrChecked;
           }
-          scope.hideItems();
-        };
+        }
 
         // Watch itemChecked property
         scope.$watch(function(){
           return scope.itemChecked;
         }, scope.onCheckValueChanged, true);
 
+        // Watch value property
         scope.$watch(function(){
           return scope.value;
         }, scope.onValueChanged, true);
+
+        // Watch items property
+        scope.$watch(function(){
+          return scope.items;
+        }, scope.fetchCheckedItems, true);
       }
     };
   }]);
