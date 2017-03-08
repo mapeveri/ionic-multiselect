@@ -316,7 +316,7 @@ angular.module("ionic-multiselect", [])
             scope.itemChecked = arrChecked;
           }
         }
-        scope.fetchCheckedDefaultItems ();
+        scope.fetchCheckedDefaultItems();
 
         // Watch itemChecked property
         scope.$watch(function(){
