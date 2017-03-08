@@ -91,7 +91,8 @@ angular.module("ionic-multiselect", [])
   *      modal-template-url="bower_components/ionic-multiselect/templates/modal-template.html"
   *      template-url="bower_components/ionic-multiselect/templates/item-template.html"
   *      note-text="Note Text"
-  *      value-changed="onValueChanged(value)">
+  *      value-changed="onValueChanged(value)"
+  *      defaul-value="datadefault">
   *   </multiselect>
   */
   .directive("multiselect", ["$ionicModal", "multiselect", function($ionicModal, multiselect) {
@@ -108,6 +109,7 @@ angular.module("ionic-multiselect", [])
       //Attributes
       scope: {
         items: "=", // Needs to have a values
+        defaultValue: "=", // Needs to have a default values selected
         valueChangedCallback: "&valueChanged", // The callback used to signal that the value has changed
         getCustomTextCallback: "&getCustomText" // The callback used to get custom text based on the selected value
       },
@@ -294,6 +296,27 @@ angular.module("ionic-multiselect", [])
             scope.itemChecked = arrChecked;
           }
         }
+
+        // Update scope.items checked attribute with scope.defaultValue
+        scope.fetchCheckedDefaultItems = function() {
+          scope.value = [];
+          if (scope.items) {
+            var arrChecked = [];
+            angular.forEach(scope.defaultValue, function(defaultitem){
+                angular.forEach(scope.items, function(item, key) {
+                if (item.text==defaultitem) {
+                  scope.value[key] = scope.getItemValue(item);
+                  item.checked=true;
+                  arrChecked.push(item);
+                }else{
+                  scope.value[key] = "";
+                }
+              });
+            })
+            scope.itemChecked = arrChecked;
+          }
+        }
+        scope.fetchCheckedDefaultItems ();
 
         // Watch itemChecked property
         scope.$watch(function(){
