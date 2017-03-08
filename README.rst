@@ -52,7 +52,8 @@ Getting started
       modal-template-url="bower_components/ionic-multiselect/templates/modal-template.html"
       template-url="bower_components/ionic-multiselect/templates/item-template.html"
       note-text="Note Text"
-      value-changed="onValueChanged(value)">
+      value-changed="onValueChanged(value)"
+      defaul-value="datadefault">
     </multiselect>
 
 5. Get value selected::
@@ -120,6 +121,11 @@ Attributes
 
 	Parameters: value - The currently selected value or list of values
 	Raised when the current value changes.
+
+12. default-value
+
+    Type: Array
+	A list of items that is default to the select.
 
 Example
 -------
