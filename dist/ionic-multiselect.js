@@ -308,8 +308,6 @@ angular.module("ionic-multiselect", [])
                   scope.value[key] = scope.getItemValue(item);
                   item.checked=true;
                   arrChecked.push(item);
-                }else{
-                  scope.value[key] = "";
                 }
               });
             })
@@ -332,6 +330,11 @@ angular.module("ionic-multiselect", [])
         scope.$watch(function(){
           return scope.items;
         }, scope.fetchCheckedItems, true);
+
+        // Watch defaultValue property
+        scope.$watch(function(){
+          return scope.defaultValue;
+        }, scope.fetchCheckedDefaultItems, true);
       }
     };
   }]);
