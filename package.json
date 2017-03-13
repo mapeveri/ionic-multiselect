@@ -1,6 +1,6 @@
 {
   "name": "ionic-multiselect",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Multiselect for Inonic Framework.",
   "main": "ionic-multiselect.js",
   "directories": {
