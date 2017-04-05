@@ -35,7 +35,7 @@ Getting started
       items="data"
       text-property="value"
       value-property="id"
-      text="Text default multiselect"
+      text="Text default multiselect">
     </multiselect>
 
     #or
