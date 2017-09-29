@@ -125,7 +125,7 @@ Attributes
 12. default-value
 
     Type: Array
-	A list of items that is default to the select.
+	A list of values (from the value-property) that is default to the select
 
 Example
 -------
