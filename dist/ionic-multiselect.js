@@ -304,7 +304,7 @@ angular.module("ionic-multiselect", [])
             var arrChecked = [];
             angular.forEach(scope.defaultValue, function(defaultitem){
                 angular.forEach(scope.items, function(item, key) {
-                if (item.text==defaultitem) {
+                if (item[scope.valueProperty]==defaultitem) {
                   scope.value[key] = scope.getItemValue(item);
                   item.checked=true;
                   arrChecked.push(item);
