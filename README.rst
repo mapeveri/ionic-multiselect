@@ -1,7 +1,7 @@
 Ionic Multiselect
 ===================
 
-Multiselect for Inonic Framework. Inspired by ionic-fancy-select and this snippet: http://codepen.io/mhartington/pen/CImqy?editors=101.
+**THIS REPO IS DEPRECATED.** Multiselect for Inonic Framework. Inspired by ionic-fancy-select and this snippet: http://codepen.io/mhartington/pen/CImqy?editors=101.
 
 Install
 -------
